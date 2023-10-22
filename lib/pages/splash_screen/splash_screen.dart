@@ -29,7 +29,7 @@ class SplashPage extends HookWidget {
 
   Future<void> checkSession() async {
     final _token = await StorageUtils.getAccessToken();
-    if (_token != null) {
+    if (_token == null) {
       await router.popAndPush(const LoginRoute());
     } else {
       await router.popAndPush(const DashboardRoute());
